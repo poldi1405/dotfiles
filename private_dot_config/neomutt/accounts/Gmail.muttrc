@@ -1,0 +1,46 @@
+# set account credentGmailmap_user        = "moritz.poldrack@googlemail.com"
+set imap_pass        = "`pass neomutt/Gmail`"
+set smtp_user        = "moritz.poldrack@googlemail.com"
+set smtp_pass        = "`pass neomutt/Gmail`"
+set folder           = "imaps://imap.gmail.com/"
+set smtp_url         = "smtps://smtp.gmail.com/"
+
+# set Mailaccount folders
+set spoolfile        = +INBOX
+set postponed        = +Entwürfe
+set record           = +Sent
+set trash            = +Trash
+unmailboxes          = *
+mailboxes            = "=GMail" "=======================" "=Trash" "=INBOX" "=Entwürfe" "=Sent" "=Trash"
+
+# set cache folders
+set header_cache     = "~/.cache/neomutt/header"
+set message_cachedir = "~/.cache/neomutt/messages"
+
+# get new mails using existing connections
+unset imap_passive
+
+# Keep the IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive   = 300
+
+# How often to check for new mail (time in seconds).
+set mail_check       = 30
+
+# switch to Mailbox using t1
+macro index,pager   i t2  '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/Gmail.muttrc<enter><change-folder>!<enter>;<check-stats>' "Switch to moritz.poldrack@googlemail.com"
+macro index,pager    tt  '<change-folder>=Trash<enter>'    "go to trash"
+macro index,pager    tdt '<save-message>=Trash<enter>'     "move to trash"
+macro index,pager    tyt '<copy-message>=Trash<enter>'     "copy to trash"
+
+macro index,pager    ti  '<change-folder>=INBOX<enter>'    "go to inbox"
+macro index,pager    tdi '<save-message>=INBOX<enter>'     "move to inbox"
+macro index,pager    tyi '<copy-message>=INBOX<enter>'     "copy to inbox"
+
+macro index,pager    te  '<change-folder>=Entwürfe<enter>' "go to drafts"
+macro index,pager    tde '<save-message>=Entwürfe<enter>'  "move to drafts"
+macro index,pager    tye '<copy-message>=Entwürfe<enter>'  "copy to drafts"
+
+macro index,pager    ts  '<change-folder>=Sent<enter>'     "go to sent"
+macro index,pager    tds '<save-message>=Sent<enter>'      "move to sent"
+macro index,pager    tys '<copy-message>=Sent<enter>'      "copy to sent"
+

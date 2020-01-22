@@ -1,0 +1,5 @@
+rofi.combi-modi:    drun,ssh,run
+rofi.modi:          combi
+rofi.theme:         gruvbox-dark-soft
+rofi.show-icons:    true
+rofi.theme: /usr/share/rofi/themes/gruvbox-dark-hard.rasi

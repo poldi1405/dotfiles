@@ -1,0 +1,18 @@
+[user]
+	name        = Moritz Poldrack
+	email       = ich@moritz-poldrack.de
+	signingkey  = AE369480370CD2D09330E1E2DBE3B6782D9D6584
+[credential]
+	helper      = cache --timeout=604800
+[core]
+	editor      = vim
+	autocrlf    = input
+	whitespace  = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
+[commit]
+	template    = ~/.gitmessage
+[help]
+	autocorrect = 3
+[merge]
+	tool        = vimdiff
+[diff]
+	external	= vimdiff

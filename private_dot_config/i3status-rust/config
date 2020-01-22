@@ -1,0 +1,44 @@
+[theme]
+name = "solarized-dark"
+
+[icons]
+name = "awesome"
+
+[[block]]
+block = "load"
+format = "{1m} {5m}"
+interval = 1
+
+[[block]]
+block = "pacman"
+interval = 300
+
+[[block]]
+block = "net"
+device = "wlp116s0"
+ssid = true
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mug}GiB/{MTg}GiB ({Mup}%)"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "backlight"
+
+[[block]]
+block = "battery"
+driver = "upower"
+
+[[block]]
+block = "time"
+format = "%d.%m.%Y %H:%M:%S"
+interval = 1
+

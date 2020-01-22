@@ -64,4 +64,4 @@ plus some more... maybe I'll make a complete list when I'm procrastinating.
 
 ### What's wrong with you? These key-bindings are mental!
 
-![You get used to it Meme](https://web.archive.org/web/20200122222714if_/https://pbs.twimg.com/media/DpR84lqVAAAfx3l.jpg)
+![You get used to it Meme](https://user-images.githubusercontent.com/33086936/72940924-153a5f80-3d70-11ea-81f0-91ce4de268f7.jpg )

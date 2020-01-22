@@ -42,9 +42,34 @@ lot of things should be covered by the install-packages script but thats not
 guaranteed. If you encounter errors after installing using the script please
 tell me by opening an issue.
 
+## Programs
+
+- dunst
+- fish
+- git
+- i3
+- i3status-rust
+- kitty
+- mpv
+- neomutt
+- qutebrowser
+- ranger
+- rofi
+- vim
+- zathura
+
+### not yet included
+
+- compton
+- mpd
+- neofetch
+- polybar
+- sublime text/merge
+- probably some others
+
 ## Keybindings
 
-I tried to be consistent butdue to limitations inside programs i cant garantee
+I tried to be consistent but due to limitations inside programs i cant garantee
 that these work all the time. However: these should work most of the time. For
 in-depth information on what keybindings are available in a specific program,
 simply read the documentation of said program and read the applied config.

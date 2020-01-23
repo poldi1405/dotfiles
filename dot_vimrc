@@ -9,7 +9,6 @@ set      novisualbell  " no visual alert
 set      showmatch     " highlight matching braces
 set      confirm       " show confirmation dialogs
 set      ruler         " show row an column indicator
-"set      backspace=indent,eol,start " set backspace behaviour
 
 " Line-Settings
 set number        " show line numbers
@@ -106,9 +105,6 @@ Plugin 'tpope/vim-repeat'
 " Sublime-like Ctrl+P
 Plugin 'ctrlpvim/ctrlp.vim'
 
-" multiple Cursor
-Plugin 'terryma/vim-multiple-cursors'
-
 " smooth scrolling using ^F ^B
 Plugin 'psliwka/vim-smoothie'
 call     vundle#end()        " required
@@ -141,11 +137,11 @@ let g:airline#extensions#tabline#enabled   = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " NerdTree Configuration
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-map <C-t> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable  = "▷"
-let g:NERDTreeDirArrowCollapsible = "◢"
+autocmd StdinReadPre                  * let s:std_in=1
+autocmd VimEnter                      * if  argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+map     <C-t>                         :NERDTreeToggle<CR>
+let     g:NERDTreeDirArrowExpandable  = "▷"
+let     g:NERDTreeDirArrowCollapsible = "◢"
 
 " vim-lion Configuration
 let g:lion_squeeze_spaces = 1
@@ -177,37 +173,32 @@ nmap <silent> <C-Up>    :wincmd k<CR>
 nmap <silent> <C-Down>  :wincmd j<CR>
 nmap <silent> <C-Left>  :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
-map <C-M> <C-W>_
+map  <C-M>    <C-W>_
 
 " Shift+q to close file
 nmap Q :q<CR>
 
 " select/list tabs and enable file menu on F5
-map tz :bn<cr>
-map tr :bp<cr>
-map tc :bd<cr>
-map tl :buffers<cr>
-map gb :b#<cr>
-nnoremap <F4> :buffers<cr>:buffer<Space>
+map      tz          :bn<cr>
+map      tr          :bp<cr>
+map      tc          :bd<cr>
+map      tl          :buffers<cr>
+map      gb          :b#<cr>
+nnoremap <F4>        :buffers<cr>:buffer<Space>
 
 " Reload vim Config
 nmap <F5> :source ~/.vimrc<cr>
 
-" Ctrl+D duplicates line
-map <C-D> yyp
-" Ctrl+Y delete line
-map <C-Y> "_dd
-
-" Ctrl + (Up/Down) move line up/down
-map <C-UP> ddkP
+" Ctrl+(Up/Down) move line up/down
+map <C-UP>   ddkP
 map <C-Down> ddp
 
 " Language-specific abbreviations
-"    Go
-autocmd BufNewFile,BufRead *.go ab func func (){<CR><CR>}
-autocmd BufNewFile,BufRead *.go ab imp import (<CR><CR>)
+"  Go
+autocmd BufNewFile,BufRead *.go ab func func   (){<CR><CR>}
+autocmd BufNewFile,BufRead *.go ab imp  import (<CR><CR>)
 
-hi Normal guibg=NONE ctermbg=NONE
-map üj :set list<cr>:set nolist<cr>
+hi  Normal guibg=NONE ctermbg=NONE
+map üj     :set       list<cr>:set nolist<cr>
 set list
 set nolist

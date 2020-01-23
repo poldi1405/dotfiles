@@ -1,7 +1,7 @@
 [user]
-	name        = Moritz Poldrack
-	email       = ich@moritz-poldrack.de
-	signingkey  = AE369480370CD2D09330E1E2DBE3B6782D9D6584
+	name        = {{ .name }}
+	email       = {{ .email }}
+	signingkey  = {{ .keyID }}
 
 [credential]
 	helper      = cache --timeout=604800

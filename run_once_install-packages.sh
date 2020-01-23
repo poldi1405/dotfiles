@@ -25,7 +25,7 @@ case $input in
 	[nN])
 		;;
 	*)
-		yay -S bat exa fd go httpie hyperfine ncdu peco pkgfile ripgrep rsync thefuck tldr --noconfirm
+		yay -S bat exa fd fish go httpie hyperfine ncdu peco pkgfile ripgrep rsync thefuck tldr --noconfirm
 		sudo pkgfile --update
 		go get -u -v github.com/justjanne/powerline-go
 		;;
@@ -40,6 +40,16 @@ case $input in
 		;;
 esac
 
+read -r -p "neomutt [Y/n] " input
+case $input in
+	[nN])
+		;;
+	*)
+		sudo pacman -S neomutt pandocs bat zathura --noconfirm
+		yay -S firewarden --noconfirm
+		;;
+esac
+
 read -r -p "vim [Y/n] " input
 case $input in
 	[nN])
@@ -47,7 +57,7 @@ case $input in
 	*)
 		rm -rf ~/.vim/bundle/Vundle.vim
 		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-		sudo pacman -S cmake python base-devel --noconfirm
+		sudo pacman -S base-devel cmake python vim --noconfirm
 		vim +PluginInstall +GoInstallBinaries +qall
 		cd ~/.vim/bundle/YouCompleteMe
 		python3 install.py --clang-completer --cs-completer --go-completer

@@ -39,8 +39,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Advanced Features for editing Go
 Plugin 'fatih/vim-go'
 
-" Gruvbox Colorscheme
-Plugin 'morhetz/gruvbox'
+" Colorscheme
+Plugin 'haishanh/night-owl.vim'
 
 " Git Integration
 Plugin 'tpope/vim-fugitive'
@@ -110,9 +110,13 @@ Plugin 'psliwka/vim-smoothie'
 call     vundle#end()        " required
 filetype plugin indent on    " required
 
-" Gruvbox Configuration
-colorscheme gruvbox
+" Colorscheme Configuration
+if (has("termguicolors"))
+	set termguicolors
+endif
+colorscheme night-owl
 set         background=dark
+let         g:lightline = { 'colorscheme': 'nightowl' }
 
 " YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion = 3
@@ -202,3 +206,4 @@ hi  Normal guibg=NONE ctermbg=NONE
 map üj     :set       list<cr>:set nolist<cr>
 set list
 set nolist
+

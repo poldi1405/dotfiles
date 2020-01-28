@@ -1,5 +1,11 @@
 #!/bin/env bash
 
+PWD=$(dirname "$0")
+
+cd "$PWD"
+echo $PWD
+git submodule update --init
+
 read -r -p "Are you on an Arch-based System? (e.g. Manjaro, Arch, etc.) [Y/n] " input
 case $input in
 	[nN])

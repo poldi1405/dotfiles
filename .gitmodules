@@ -1,0 +1,3 @@
+[submodule "private_dot_config/private_polybar/extensions/polybar-kdeconnect"]
+	path = private_dot_config/private_polybar/extensions/polybar-kdeconnect
+	url = https://github.com/HackeSta/polybar-kdeconnect

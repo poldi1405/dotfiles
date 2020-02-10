@@ -9,6 +9,7 @@ set      novisualbell  " no visual alert
 set      showmatch     " highlight matching braces
 set      confirm       " show confirmation dialogs
 set      ruler         " show row an column indicator
+set      hidden        "?
 
 " Line-Settings
 set number        " show line numbers
@@ -40,13 +41,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'fatih/vim-go'
 
 " Colorscheme
-Plugin 'haishanh/night-owl.vim'
+Plugin 'christophermca/meta5'
 
 " Git Integration
 Plugin 'tpope/vim-fugitive'
-
-" Syntax Checks
-Plugin 'scrooloose/syntastic'
 
 " Statusbar
 Plugin 'vim-airline/vim-airline'
@@ -55,6 +53,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 " and Git support
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" Undo-Tree
+Plugin 'mbbill/undotree'
 
 " Code Completion
 Plugin 'Valloric/YouCompleteMe'
@@ -103,10 +104,18 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
 " Sublime-like Ctrl+P
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf.vim'
 
 " smooth scrolling using ^F ^B
 Plugin 'psliwka/vim-smoothie'
+
+" Syntax-checks
+Plugin 'vim-syntastic/syntastic'
+
+" LaTeX editing
+Plugin 'lervag/vimtex'
+Plugin 'xuhdev/vim-latex-live-preview'
+
 call     vundle#end()        " required
 filetype plugin indent on    " required
 
@@ -114,9 +123,7 @@ filetype plugin indent on    " required
 if (has("termguicolors"))
 	set termguicolors
 endif
-colorscheme night-owl
-set         background=dark
-let         g:lightline = { 'colorscheme': 'nightowl' }
+colorscheme meta5
 
 " YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion = 3
@@ -130,10 +137,11 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list            = 1
-let g:syntastic_check_on_open            = 1
-let g:syntastic_check_on_wq              = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Airline Configuration
 let g:airline_powerline_fonts              = 1
@@ -143,9 +151,13 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " NerdTree Configuration
 autocmd StdinReadPre                  * let s:std_in=1
 autocmd VimEnter                      * if  argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-map     <C-t>                         :NERDTreeToggle<CR>
-let     g:NERDTreeDirArrowExpandable  = "▷"
-let     g:NERDTreeDirArrowCollapsible = "◢"
+map     <S-T>                         :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable  = "▷"
+let g:NERDTreeDirArrowCollapsible = "◢"
+let g:NERDTreeMapOpenInTab        = 'o'
+let g:NERDTreeMapOpenInTabSilent  = 'O'
+autocmd BufEnter NERD_tree_* nmap  <C-h> <CR> :let NERDTreeShowHidden = 1<CR>
+autocmd BufLeave NERD_tree_* unmap d<CR>
 
 " vim-lion Configuration
 let g:lion_squeeze_spaces = 1
@@ -157,10 +169,10 @@ nmap cw ce
 " gitgutter Configuration
 let g:gitgutter_grep                    = 'rg'
 let g:gitgutter_map_keys                = 0
-let g:gitgutter_sign_added              = '+'
+let g:gitgutter_sign_added              = ''
 let g:gitgutter_sign_modified           = '~'
-let g:gitgutter_sign_modified_removed   = '~-'
-let g:gitgutter_sign_removed            = '-'
+let g:gitgutter_sign_modified_removed   = '~'
+let g:gitgutter_sign_removed            = ''
 let g:gitgutter_sign_removed_first_line = '◥'
 set updatetime                          =300
 
@@ -173,10 +185,10 @@ let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
 cnoreabbrev W SudoWrite
 
 " navigate split windows with Ctrl+Direction, maximise with Ctrl+M
-nmap <silent> <C-Up>    :wincmd k<CR>
-nmap <silent> <C-Down>  :wincmd j<CR>
-nmap <silent> <C-Left>  :wincmd h<CR>
-nmap <silent> <C-Right> :wincmd l<CR>
+nmap <silent> <S-Up>    :wincmd k<CR>
+nmap <silent> <S-Down>  :wincmd j<CR>
+nmap <silent> <S-Left>  :wincmd h<CR>
+nmap <silent> <S-Right> :wincmd l<CR>
 map  <C-M>    <C-W>_
 
 " Shift+q to close file
@@ -197,13 +209,21 @@ nmap <F5> :source ~/.vimrc<cr>
 map <C-UP>   ddkP
 map <C-Down> ddp
 
+" Toggle Undo Tree
+nnoremap <S-U> :UndotreeToggle<CR>
+
+nnoremap <S-F> :FZF<CR>
+let g:fzf_source = 'fd'
+
+let g:livepreview_previewer = 'zathura'
+let g:polyglot_disabled = ['latex']
+
 " Language-specific abbreviations
 "  Go
-autocmd BufNewFile,BufRead *.go ab func func   (){<CR><CR>}
+autocmd BufNewFile,BufRead *.go ab func func (){<CR><CR>}
 autocmd BufNewFile,BufRead *.go ab imp  import (<CR><CR>)
 
 hi  Normal guibg=NONE ctermbg=NONE
 map üj     :set       list<cr>:set nolist<cr>
 set list
 set nolist
-

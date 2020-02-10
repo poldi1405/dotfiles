@@ -52,7 +52,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # screenshot
-bindsym --release Print exec maim -s -u ~/Pictures/Screenshots/screenshot_$(date +%s).png
+bindsym --release Print exec scrot -s ~/Pictures/Screenshots/screenshot_$(date +%s).png
 
 # change focus
 bindsym $mod+Left focus left
@@ -194,9 +194,10 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-exec polybar top
+exec ~/.config/polybar/launch_polybar
 
 bar {
+  font pango:Nerd Fonts, FontAwesome 12
   status_command i3status-rs ~/.config/i3status-rust/config
   colors {
                 background $bg-color
@@ -224,7 +225,7 @@ assign [class=Nemo] $ws5
 assign [class=Qemu-system-x86_64] $ws6
 for_window [class=Qemu-system-x86_64] fullscreen
 ## Media Applications
-assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] $ws7
+assign [class=Audacity|Vlc|Ghb|Xfburn|Gimp*|Inkscape] $ws7
 ## Remote Desktops
 assign [class=rdesktop|X2GoAgent|x2goclient] $ws8
 for_window [class=rdesktop] floating enable
@@ -235,5 +236,6 @@ assign [class=NXAgent] $ws9
 assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] $ws5
 for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
 for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
+for_window [class=mpv] floating enable
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 for_window [class=NXAgent|qutebrowser|Chromium|Sublime_merge] focus

@@ -20,6 +20,7 @@ alias cp "rsync --progress"
 alias rm "rm -rf"
 alias kwww "knock -v -d 100 www2.45n43b.xyz 666 1405 1912 22"
 alias klfs "knock -v -d 100 lfs.45n43b.xyz 9639 623 420 22"
+alias tssh "torsocks ssh"
 
 thefuck --alias | source
 

@@ -37,6 +37,15 @@ case $input in
 		;;
 esac
 
+read -r -p "i3 [Y/n] " input
+case $input in
+	[nN])
+		;;
+	*)
+		yay -S i3-gaps-rounded-git feh rofi --noconfirm
+		;;
+esac
+
 read -r -p "i3status-rust [Y/n] " input
 case $input in
 	[nN])
@@ -61,6 +70,7 @@ case $input in
 	[nN])
 		;;
 	*)
+		yay -S cmake --noconfirm
 		rm -rf ~/.vim/bundle/Vundle.vim
 		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 		sudo pacman -S base-devel cmake python vim --noconfirm

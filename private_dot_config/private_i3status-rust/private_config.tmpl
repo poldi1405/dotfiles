@@ -29,7 +29,7 @@ interval = 300
 
 [[block]]
 block = "net"
-device = "wlp116s0"
+device = "{{ .interface }}"
 ssid = true
 
 [[block]]
@@ -52,12 +52,14 @@ block = "sound"
 #threshold_critical = 10
 #display_type = "new"
 
+{{- if eq .chezmoi.hostname "Arschlinux" }}
 [[block]]
 block = "backlight"
 
 [[block]]
 block = "battery"
 driver = "upower"
+{{- end }}
 
 [[block]]
 block = "pomodoro"

@@ -1,7 +1,8 @@
-{{- $email := promptString "email" -}}
-{{- $name := promptString "name" -}}
-{{- $keyID := promptString "keyID" -}}
-{{- $prettyKeyID := promptString "prettyKeyID" -}}
+{{- $email := promptString "Email" -}}
+{{- $name := promptString "Name" -}}
+{{- $keyID := promptString "KeyID" -}}
+{{- $prettyKeyID := promptString "Pretty KeyID" -}}
+{{- $interface := promptString "Network Interface"}
 [sourceVCS]
 #	autoCommit  = true
 #	autoPush    = true
@@ -11,3 +12,4 @@
 	name        = "{{ $name }}"
 	keyID       = "{{ $keyID }}"
 	prettyKeyID = "{{ $prettyKeyID }}"
+	interface   = "{{ $interface }}"

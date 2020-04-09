@@ -104,7 +104,7 @@ set $ws6 "6 "
 set $ws7 "7 "
 set $ws8 "8 "
 set $ws9 "9"
-set $ws0 "10"
+set $ws0 "10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -170,7 +170,7 @@ bindsym $mod+r mode "resize"
 set $mode_system System (l)ock, (e)xit, (r)eboot, (s)hutdown
 mode "$mode_system" {
 	bindsym l exec --no-startup-id ~/.config/i3/scripts/lockscreen.sh, mode "default"
-	bindsym e exec --no-startup-id swaymsg exit, mode "default"
+	bindsym e exec --no-startup-id i3-msg exit, mode "default"
 	bindsym r exec --no-startup-id systemctl reboot, mode "default"
 	bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
 

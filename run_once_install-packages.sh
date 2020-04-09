@@ -42,16 +42,7 @@ case $input in
 	[nN])
 		;;
 	*)
-		yay -S i3-gaps-rounded-git feh rofi --noconfirm
-		;;
-esac
-
-read -r -p "i3status-rust [Y/n] " input
-case $input in
-	[nN])
-		;;
-	*)
-		yay -S i3status-rust-git --noconfirm
+		yay -S i3-gaps-rounded-git feh rofi polybar i3status-rust-git zenity --noconfirm
 		;;
 esac
 

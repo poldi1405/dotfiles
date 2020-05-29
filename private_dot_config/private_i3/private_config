@@ -20,6 +20,7 @@ border_radius 10
 
 # autostart
 exec --no-startup-id hsetroot -full ~/wall.png
+exec --no-startup-id ~/.screenlayout/screenlayout.sh
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 exec --no-startup-id ramboxpro
@@ -211,27 +212,29 @@ bar {
 
 
 # window rules, you can find the window class using xpropc
+## Games
+assign [class=Wine]                                   $ws0
 ## Terminals
-assign [class=kitty] $ws1
+assign [class=kitty]                                  $ws1
 ## Sublime Merge
-assign [class=Sublime_merge] $ws2
+assign [class=Sublime_merge]                          $ws2
 ## Communications
-assign [class=discord|Rambox] $ws3
+assign [class=discord|Rambox]                         $ws3
 ## Browsers
-assign [class=Chromium|qutebrowser] $ws4
+assign [class=Chromium|qutebrowser]                   $ws4
 ## File Explorers
-assign [class=Nemo] $ws5
+assign [class=Nemo]                                   $ws5
 ## VMs
-assign [class=Qemu-system-x86_64] $ws6
+assign [class=Qemu-system-x86_64]                     $ws6
 for_window [class=Qemu-system-x86_64] fullscreen
 ## Media Applications
 assign [class=Audacity|Vlc|Ghb|Xfburn|Gimp*|Inkscape] $ws7
 ## Remote Desktops
-assign [class=rdesktop|X2GoAgent|x2goclient] $ws8
+assign [class=rdesktop|X2GoAgent|x2goclient]          $ws8
 for_window [class=rdesktop] floating enable
 for_window [class=rdesktop|X2GoAgent|x2goclient] focus
 ## TODO: find out what that was
-assign [class=NXAgent] $ws9
+assign [class=NXAgent]                                $ws9
 ## System Tools
 assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] $ws5
 for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable

@@ -61,7 +61,19 @@ case $input in
 	[nN])
 		;;
 	*)
+		yay -S ctags --noconfirm
 		curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		vim +PlugInstall
+		vim +PlugInstall +GoInstallBinaries +qall
 		;;
 esac
+		
+
+read -r -p "sudo [Y/n] " input
+case $input in
+	[nN])
+		;;
+	*)
+		echo -ne "\n\nDefaults !tty_tickets\nDefaults passwd_timeout=0" | sudo tee -a /etc/sudoers > /dev/null
+		;;
+esac
+		

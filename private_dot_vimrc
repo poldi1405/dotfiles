@@ -34,6 +34,7 @@ set shortmess=at
 imap <C-f> <C-x><C-f>
 
 " highlight search results and clear by pressing enter
+set incsearch
 set hlsearch
 nnoremap <silent> <CR> :noh<CR><CR>
 

@@ -32,6 +32,7 @@ exec --no-startup-id syncthing -no-browser
 exec --no-startup-id kdeconnect-cli -d d0a40f960130a253 --encryption-info
 exec feh --bg-scale ~/.wallpaper
 exec --no-startup-id xautolock -time 5 -notify 30 -locker "~/.config/i3/scripts/lockscreen.sh"
+exec --no-startup-id ~/.autostart.sh
 exec setxkbmap de
 
 

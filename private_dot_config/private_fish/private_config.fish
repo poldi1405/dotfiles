@@ -28,5 +28,5 @@ alias trsync "rsync --progress -e 'ssh -o ProxyCommand=\'nc -x localhost:9050 %h
 thefuck --alias | source
 
 function fish_prompt
-	powerline-go -error $status -shell bare -modules nix-shell,venv,user,host,ssh,cwd,perms,git,hg,jobs,exit,vgo -newline
+	powerline-go -error $status -colorize-hostname -shell bare -modules nix-shell,venv,user,host,ssh,cwd,perms,git,hg,jobs,exit,vgo -newline
 end

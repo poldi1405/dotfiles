@@ -1,0 +1,12 @@
+{
+	"hide_menu": false,
+	"theme": "Merge Dark.sublime-theme",
+	"time_format": "24h",
+	"font_face": "Operator Mono",
+	"expand_merge_commits_by_default": true,
+	"hardware_acceleration": "opengl",
+	"render_commit_dialog_message_at_top": false,
+	"side_bar_layout": "locations_as_column",
+	"translate_tabs_to_spaces": false,
+	"trim_trailing_white_space_on_save": true,
+}

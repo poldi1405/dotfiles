@@ -1,0 +1,7 @@
+{
+	"font_size": 11,
+	"font_face": "Operator Mono",
+	"trim_trailing_white_space_on_save": true,
+	"save_on_focus_lost": true,
+	"shift_tab_unindent": true
+}

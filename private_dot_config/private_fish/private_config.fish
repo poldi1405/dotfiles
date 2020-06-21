@@ -1,5 +1,5 @@
-set -U EDITOR vim
-set -U VISUAL vim
+set -xU EDITOR vim
+set -xU VISUAL vim
 
 set -x GOPATH $HOME/go
 set -xg PATH $GOPATH/bin $PATH

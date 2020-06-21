@@ -1,0 +1,9 @@
+{
+	"font_face": "Operator Mono",
+	"theme": "Merge Dark.sublime-theme",
+	"time_format": "24h",
+	"editor_path": "kitty vim",
+	"hardware_acceleration": "opengl",
+	"render_commit_dialog_message_at_top": false,
+	"side_bar_layout": "columns",
+}

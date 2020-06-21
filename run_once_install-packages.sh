@@ -42,7 +42,7 @@ case $input in
 	[nN])
 		;;
 	*)
-		yay -S i3-gaps-rounded-git feh rofi polybar i3status-rust-git zenity --noconfirm
+		yay -S i3 feh rofi polybar i3status-rust-git zenity --noconfirm
 		;;
 esac
 

@@ -16,7 +16,7 @@ for_window [class=".*"] border pixel 0
 gaps outer 15
 gaps inner 15
 # and rounded corners
-border_radius 10
+#border_radius 10 # removed because there was no update in quite some time.
 
 # autostart
 exec --no-startup-id hsetroot -full ~/wall.png

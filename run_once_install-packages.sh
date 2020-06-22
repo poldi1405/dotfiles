@@ -42,7 +42,7 @@ case $input in
 	[nN])
 		;;
 	*)
-		yay -S i3-gaps-rounded-git feh rofi polybar i3status-rust-git zenity --noconfirm
+		yay -S i3 feh rofi polybar i3status-rust-git zenity --noconfirm
 		;;
 esac
 
@@ -66,14 +66,27 @@ case $input in
 		vim +PlugInstall +GoInstallBinaries +qall
 		;;
 esac
-		
 
 read -r -p "sudo [Y/n] " input
 case $input in
 	[nN])
 		;;
 	*)
-		echo -ne "\n\nDefaults !tty_tickets\nDefaults passwd_timeout=0" | sudo tee -a /etc/sudoers > /dev/null
+		echo "not yet working… not applied!"
+		#echo -ne "\n\nDefaults !tty_tickets\nDefaults passwd_timeout=0" | sudo tee -a /etc/sudoers > /dev/null
 		;;
 esac
 		
+read -r -p "sublime-merge [Y/n] " input
+case $input in
+	[nN])
+		;;
+	*)
+		grep sublimetext.com /etc/pacman.conf > /dev/null
+		if [ $? == 0 ]; then
+			echo "already applied… skipping"
+		else
+			echo -ne "[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/sudoers > /dev/null
+			sudo pacman -Sy sublime-merge --noconfirm
+		fi
+esac

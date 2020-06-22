@@ -3,6 +3,7 @@
 	"theme": "Merge Dark.sublime-theme",
 	"time_format": "24h",
 	"font_face": "Operator Mono",
+	"editor_path": "kitty vim",
 	"expand_merge_commits_by_default": true,
 	"hardware_acceleration": "opengl",
 	"render_commit_dialog_message_at_top": false,

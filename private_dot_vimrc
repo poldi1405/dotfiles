@@ -20,8 +20,6 @@ set ignorecase
 function! PutTags()
 	if filewritable(expand(".git/"))
 		silent !ctags -R -f .git/tags .
-	else
-		silent !ctags -R -f .tags .
 	endif
 endfunction
 autocmd BufWritePost *.go,*.c,*.cpp,*.h,*.js,*.css,*.tex,*.php,*.md :call PutTags()
@@ -114,7 +112,7 @@ map      tl          :buffers<cr>
 map      gb          :b#<cr>
 nnoremap <F4>        :buffers<cr>:buffer<Space>
 
-autocmd BufWritePre *.go,*.c,*.cpp,*.h,*.js,*.css,*.tex,*.php,*.md,*.html,*.tex :silent Autoformat
+autocmd BufWritePre *.go,*.c,*.cpp,*.h,*.js,*.css,*.tex,*.php :silent Autoformat
 
 " Setup Buffer overview
 let g:buffet_powerline_separators = 1

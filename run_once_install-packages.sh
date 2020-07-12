@@ -9,7 +9,7 @@ case $input in
 		if [ $? == 0 ]; then
 			echo "already applied… skipping"
 		else
-			echo -ne "[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/sudoers > /dev/null
+			echo -ne "\n\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf > /dev/null
 			sudo pacman -Sy sublime-merge --noconfirm
 		fi
 esac
@@ -23,7 +23,7 @@ case $input in
 		if [ $? == 0 ]; then
 			echo "already applied… skipping"
 		else
-			echo -ne "[mp-pachost]\nServer = https://pachost.moritz.sh/" | sudo tee -a /etc/sudoers > /dev/null
+			echo -ne "\n\n[mp-pachost]\nServer = https://pachost.moritz.sh/" | sudo tee -a /etc/pacman.conf > /dev/null
 			sudo pacman -Sy sublime-merge --noconfirm
 		fi
 esac

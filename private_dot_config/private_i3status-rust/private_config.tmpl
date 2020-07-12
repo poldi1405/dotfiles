@@ -26,6 +26,10 @@ format = "{1m} {5m}"
 [[block]]
 block = "pacman"
 interval = 300
+format = "{pacman}+{aur}"
+format_up_to_date = "0"
+critical_updates_regex = "(linux |linux-lts|linux-zen)"
+aur_command = "yay -Qua"
 
 [[block]]
 block = "net"

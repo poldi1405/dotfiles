@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-read -r -p "sublime-merge [Y/n] " input
+read -r -p "add repository sublime-merge [Y/n] " input
 case $input in
 	[nN])
 		;;
@@ -9,12 +9,13 @@ case $input in
 		if [ $? == 0 ]; then
 			echo "already applied… skipping"
 		else
+			curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
 			echo -ne "\n\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf > /dev/null
 			sudo pacman -Sy sublime-merge --noconfirm
 		fi
 esac
 		
-read -r -p "mp-pachost [Y/n] " input
+read -r -p "add repository mp-pachost [Y/n] " input
 case $input in
 	[nN])
 		;;
@@ -23,8 +24,9 @@ case $input in
 		if [ $? == 0 ]; then
 			echo "already applied… skipping"
 		else
+			curl -O https://pachost.moritz.sh/pubkey.gpg && sudo pacman-key --add pubkey.gpg && sudo pacman-key --lsign-key A602DD01FB9653C7EDAAC572D786E1EED2C71596 && rm pubkey.gpg
 			echo -ne "\n\n[mp-pachost]\nServer = https://pachost.moritz.sh/" | sudo tee -a /etc/pacman.conf > /dev/null
-			sudo pacman -Sy sublime-merge --noconfirm
+			sudo pacman -Sy 
 		fi
 esac
 

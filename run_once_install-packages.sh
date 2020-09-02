@@ -98,7 +98,7 @@ case $input in
 	*)
 		yay -S ctags --noconfirm
 		curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		vim +PlugClean +PlugUpgrade +PlugUpdate +PlugInstall +GoInstallBinaries +qall
+		vim +PlugClean +PlugUpgrade +PlugUpdate +PlugInstall +GoInstallBinaries +GoUpdateBinaries +qall
 		;;
 esac
 

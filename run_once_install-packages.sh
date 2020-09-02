@@ -55,9 +55,11 @@ case $input in
 	[nN])
 		;;
 	*)
-		yay -S bat exa fd fish go httpie hyperfine ncdu peco pkgfile ripgrep rsync thefuck tldr --noconfirm
+		yay -S advcp bat exa fd fish fisher go httpie hyperfine ncdu peco pkgfile ripgrep rsync thefuck tldr --noconfirm
 		sudo pkgfile --update
 		go get -u -v github.com/justjanne/powerline-go
+		cat ~/.config/fish/fishfile > /dev/null 2>&1 && fisher || fisher add acomagu/fish-async-prompt
+		yay -Y --gendb
 		;;
 esac
 
@@ -96,7 +98,7 @@ case $input in
 	*)
 		yay -S ctags --noconfirm
 		curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		vim +PlugInstall +GoInstallBinaries +qall
+		vim +PlugClean +PlugUpgrade +PlugUpdate +PlugInstall +GoInstallBinaries +qall
 		;;
 esac
 

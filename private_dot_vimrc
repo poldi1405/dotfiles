@@ -34,7 +34,6 @@ imap <C-f> <C-x><C-f>
 " highlight search results and clear by pressing enter
 set incsearch
 set hlsearch
-nnoremap <silent> <CR> :noh<CR><CR>
 
 " Line numbers please
 set number
@@ -83,6 +82,15 @@ Plug 'mattn/benchvimrc-vim'
 " Buffer overview
 "Plug 'bagrat/vim-buffet'
 Plug 'vim-airline/vim-airline'
+
+" May Tim Pope be blessed!
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-vinegar'
+
+" Go everywhere easily
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " apply theme
@@ -130,3 +138,8 @@ nnoremap <S-U> :UndotreeToggle<CR>
 
 " show commit that introduced line
 map <silent>gb :call setbufvar(winbufnr(popup_atcursor(systemlist("cd " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) . " && git log --no-merges -n 1 -L " . shellescape(line("v") . "," . line(".") . ":" . resolve(expand("%:p")))), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
+
+" clear search highlight on Esc/Enter in normal mode
+nnoremap <silent> <esc> :noh<return><esc>
+nnoremap <silent> <CR> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[

@@ -4,29 +4,53 @@ set -xU VISUAL vim
 set -x GOPATH $HOME/go
 set -xg PATH $GOPATH/bin $PATH
 
-alias rsync "rsync -c -r -p -E -X --partial-dir=.rsync-partial --stats -h -P "
-alias cat bat
-alias please "sudo "
-alias ls "exa -l --git"
-alias f fuck
-alias bench hyperfine
-alias grep "rg -S --heading -C 1 --color auto --heading --line-number"
-alias select peco
-alias sel peco
-alias analyse ncdu
-alias curl "http --follow"
-alias icat "kitty +kitty icat"
-alias cp "advcp -g"
-alias mv "advmv -g"
-alias rm "rm -rf"
-alias kwww "knock -v -d 100 www2.45n43b.xyz 666 1405 1912 22"
-alias klfs "knock -v -d 100 lfs.45n43b.xyz 9639 623 420 22"
-alias tssh "ssh -o ProxyCommand='nc -x localhost:9050 %h %p'"
-alias tscp "scp -o ProxyCommand='nc -x localhost:9050 %h %p'"
-alias trsync "rsync --progress -e 'ssh -o ProxyCommand=\'nc -x localhost:9050 %h %p\''"
+function setup_alias
+	alias rsync "rsync -c -r -p -E -X --partial-dir=.rsync-partial --stats -h -P "
+	alias please "sudo "
+	alias f fuck
+	alias bench hyperfine
+	alias select peco
+	alias sel peco
+	alias analyse ncdu
 
-thefuck --alias | source
+	if which http > /dev/null 2>&1
+		alias curl "http --follow"
+	end
+
+	if which kitty > /dev/null 2>&1
+		alias icat "kitty +kitty icat"
+	end
+
+	if which advcp > /dev/null 2>&1
+		alias cp "advcp -g"
+		alias mv "advmv -g"
+	end
+
+	if which rg > /dev/null 2>&1
+		alias grep "rg -S --heading -C 1 --color auto --heading --line-number"
+	end
+
+	if which bat > /dev/null 2>&1
+		alias cat bat
+	end
+
+	if which exa > /dev/null 2>&1
+		alias ls "exa -l --git"
+	end
+
+	alias rm "rm -rf"
+	alias tssh "ssh -o ProxyCommand='nc -x localhost:9050 %h %p'"
+	alias tscp "scp -o ProxyCommand='nc -x localhost:9050 %h %p'"
+	alias trsync "rsync --progress -e 'ssh -o ProxyCommand=\'nc -x localhost:9050 %h %p\''"
+end
+
+setup_alias &
+thefuck --alias | source &
+
+function install
+	yay -S $argv --noconfirm
+end
 
 function fish_prompt
-	powerline-go -error $status -colorize-hostname -shell bare -modules nix-shell,venv,user,host,ssh,cwd,perms,git,hg,jobs,exit,vgo -newline
+	powerline-go -error $status -colorize-hostname -shell bare -modules nix-shell,venv,user,host,ssh,cwd,perms,git,hg,jobs,exit,vgo -newline -hostname-only-if-ssh -mode compatible
 end

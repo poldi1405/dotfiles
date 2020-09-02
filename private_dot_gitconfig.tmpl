@@ -10,6 +10,7 @@
 	editor      = vim
 	autocrlf    = input
 	whitespace  = trailing-space,space-before-tab,indent-with-non-tab,cr-at-eol
+	pager       = delta
 
 [commit]
 	template    = ~/.gitmessage
@@ -21,8 +22,17 @@
 [merge]
 	tool        = vimdiff
 
-[diff]
-	external	= vimdiff
-
 [pull]
 	ff = only
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none

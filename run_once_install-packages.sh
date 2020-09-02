@@ -70,6 +70,15 @@ case $input in
 		;;
 esac
 
+read -r -p "git [Y/n] " input
+case $input in
+	[nN])
+		;;
+	*)
+		yay -S git-lfs git-delta --noconfirm
+		;;
+esac
+
 read -r -p "neomutt [Y/n] " input
 case $input in
 	[nN])

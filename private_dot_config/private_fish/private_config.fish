@@ -47,10 +47,14 @@ end
 setup_alias &
 thefuck --alias | source &
 
+function update
+	yay -Syu --noconfirm --sudoloop
+end
+
 function install
 	yay -S $argv --noconfirm
 end
 
 function fish_prompt
-	powerline-go -error $status -colorize-hostname -shell bare -modules nix-shell,venv,user,host,ssh,cwd,perms,git,hg,jobs,exit,vgo -newline -hostname-only-if-ssh -mode compatible
+	powerline-go -error $status -colorize-hostname -shell bare -modules nix-shell,venv,user,host,ssh,cwd,perms,git,hg,jobs,exit,vgo -newline -hostname-only-if-ssh 
 end

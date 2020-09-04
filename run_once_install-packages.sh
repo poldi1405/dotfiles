@@ -86,7 +86,7 @@ case $input in
 	[nN])
 		;;
 	*)
-		sudo pacman -S neomutt pandocs bat zathura --noconfirm
+		sudo pacman -S neomutt pandoc-bin bat zathura --noconfirm
 		yay -S firewarden --noconfirm
 		;;
 esac

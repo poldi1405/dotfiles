@@ -1,0 +1,25 @@
+fileviewer *.pdf
+	\ pdftotext %c -
+
+fileviewer *.tar,*.tar.gz,*.7z,*.zip,*.rar,*.tar.xz
+	\ atool -l %c | tail -n +4 | head -n -2 | sed 's/.*   //' | tree --fromfile .
+
+fileviewer */
+	\ tree --dirsfirst -s -L 2 %c
+
+fileviewer *.exe
+	\ echo "executable file – no preview available"
+
+
+filextype *.svg
+        \ {Open Images in feh}
+        \ feh --conversion-timeout 1 %f &,
+
+filextype *.jpg,*.jpeg,*.gif,*.png,*.bmp,*.webp
+        \ {Open Images in feh}
+        \ feh %f &,
+
+set statusline="  %t%= %A %10u:%-7g %15E %20d  "
+
+vnoremap br :!qmv -f do %f<cr>
+nnoremap br :!qmv -f do %f<cr>

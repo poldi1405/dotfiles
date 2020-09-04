@@ -102,6 +102,16 @@ case $input in
 		;;
 esac
 
+read -r -p "vifm [Y/n] " input
+case $input in
+	[nN])
+		;;
+	*)
+		git clone https://github.com/cirala/vifmimg.git ~/.config/vimfm/vifmimg
+		yay -S vifm ueberzug ffmpegthumbnailer imagemagick poppler epub-thumbnailer-git fontpreview-git --noconfirm
+		;;
+esac
+
 read -r -p "sudo [Y/n] " input
 case $input in
 	[nN])
